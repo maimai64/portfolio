@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mai — Web Director</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --gray-mid: #888;
+      --gray-light: #e8e8e4;
+      --bg: #faf9f7;
+      --white: #fff;
+      --accent: #2a2a2a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--bg);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--gray-light);
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      color: var(--black);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    /* ─── Sections ─── */
+    section { padding: 7rem 3rem; }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* ─── Hero ─── */
+    #hero {
+      padding-top: 10rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gray-mid);
+    }
+
+    .hero-desc {
+      max-width: 520px;
+      color: var(--gray-mid);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--black);
+      color: var(--black);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* ─── Divider ─── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    /* ─── About ─── */
+    #about .grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 4rem;
+      color: var(--gray-light);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .about-body p { color: var(--gray-mid); margin-bottom: 1.25rem; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body strong { color: var(--black); font-weight: 500; }
+
+    /* ─── Works ─── */
+    #works .works-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3rem;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .work-card {
+      background: var(--white);
+      border: 1px solid var(--gray-light);
+      padding: 2rem;
+      transition: border-color 0.2s;
+    }
+
+    .work-card:hover { border-color: var(--black); }
+
+    .work-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 0.75rem;
+    }
+
+    .work-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .work-desc { font-size: 0.9rem; color: var(--gray-mid); }
+
+    .work-year {
+      font-size: 0.78rem;
+      color: var(--gray-light);
+      margin-top: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── Skills ─── */
+    #skills .skills-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+    }
+
+    .skill-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .skill-group-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-pill {
+      font-size: 0.82rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--gray-light);
+      color: var(--black);
+      background: var(--white);
+    }
+
+    /* ─── Contact ─── */
+    #contact {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    #contact .container { text-align: center; }
+
+    .contact-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+    }
+
+    .contact-sub {
+      color: #888;
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+    }
+
+    .btn-white {
+      border-color: var(--white);
+      color: var(--white);
+    }
+
+    .btn-white:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: 1.5rem 3rem;
+      border-top: 1px solid #333;
+      background: var(--black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p { font-size: 0.78rem; color: #555; letter-spacing: 0.05em; }
+
+    /* ─── Animations ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 720px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      section { padding: 5rem 1.5rem; }
+      #hero { padding-top: 8rem; }
+      #about .grid,
+      #skills .skills-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .works-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="#hero" class="nav-logo">Mai.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="container">
+      <p class="hero-eyebrow fade-in">Web Director — Tokyo</p>
+      <h1 class="hero-title fade-in" style="transition-delay: 0.1s">
+        Directing the web,<br><em>one pixel at a time.</em>
+      </h1>
+      <p class="hero-desc fade-in" style="transition-delay: 0.2s">
+        ウェブサイトの企画・ディレクションを担当しています。<br>
+        ユーザー体験とビジネス目標をつなぐ設計が得意分野です。
+      </p>
+      <a href="#works" class="btn fade-in" style="transition-delay: 0.3s">View Works</a>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="grid">
+        <div>
+          <p class="section-label">About</p>
+          <p class="section-num">01</p>
+        </div>
+        <div class="about-body fade-in">
+          <p>
+            東京を拠点に活動するウェブディレクターです。
+            <strong>企画・設計・進行管理</strong>を軸に、クライアントのビジネス課題をウェブで解決することを仕事にしています。
+          </p>
+          <p>
+            エンジニア・デザイナーと密に連携しながら、ユーザーにとって自然で気持ちよいウェブ体験を追求しています。
+          </p>
+          <p>
+            仕事以外では、写真・料理・読書が好きです。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Works -->
+  <section id="works">
+    <div class="container">
+      <div class="works-header">
+        <div>
+          <p class="section-label">Works</p>
+          <p class="section-num">02</p>
+        </div>
+      </div>
+      <div class="works-grid">
+        <div class="work-card fade-in">
+          <p class="work-tag">Corporate Website</p>
+          <h3 class="work-title">企業サイト リニューアル</h3>
+          <p class="work-desc">UI改善とCMS刷新により、コンテンツ更新の工数を50%削減。</p>
+          <p class="work-year">2024</p>
+        </div>
+        <div class="work-card fade-in" style="transition-delay: 0.1s">
+          <p class="work-tag">EC Site</p>
+          <h3 class="work-title">ECサイト UX改善</h3>
+          <p class="work-desc">購入フローの見直しとA/Bテストにより、CVRを1.8倍に改善。</p>
+          <p class="work-year">2023</p>
+        </div>
+        <div class="work-card fade-in" style="transition-delay: 0.15s">
+          <p class="work-tag">Service LP</p>
+          <h3 class="work-title">サービス LP 制作</h3>
+          <p class="work-desc">ターゲット設定からコピーライティング、制作進行まで一貫してディレクション。</p>
+          <p class="work-year">2023</p>
+        </div>
+        <div class="work-card fade-in" style="transition-delay: 0.2s">
+          <p class="work-tag">Design System</p>
+          <h3 class="work-title">デザインシステム 構築</h3>
+          <p class="work-desc">社内共通コンポーネントの整備により、制作速度を大幅に向上。</p>
+          <p class="work-year">2022</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="skills-inner">
+        <div>
+          <p class="section-label">Skills</p>
+          <p class="section-num">03</p>
+        </div>
+        <div class="skill-groups fade-in">
+          <div>
+            <p class="skill-group-label">Direction</p>
+            <div class="skill-list">
+              <span class="skill-pill">要件定義</span>
+              <span class="skill-pill">進行管理</span>
+              <span class="skill-pill">IA設計</span>
+              <span class="skill-pill">ワイヤーフレーム</span>
+              <span class="skill-pill">A/Bテスト</span>
+            </div>
+          </div>
+          <div>
+            <p class="skill-group-label">Design</p>
+            <div class="skill-list">
+              <span class="skill-pill">Figma</span>
+              <span class="skill-pill">Adobe XD</span>
+              <span class="skill-pill">UI設計</span>
+            </div>
+          </div>
+          <div>
+            <p class="skill-group-label">Technical</p>
+            <div class="skill-list">
+              <span class="skill-pill">HTML</span>
+              <span class="skill-pill">CSS</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">WordPress</span>
+              <span class="skill-pill">Git</span>
+            </div>
+          </div>
+          <div>
+            <p class="skill-group-label">Analytics</p>
+            <div class="skill-list">
+              <span class="skill-pill">GA4</span>
+              <span class="skill-pill">Looker Studio</span>
+              <span class="skill-pill">ヒートマップ分析</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="contact-title">Let's work together.</h2>
+      <p class="contact-sub">お仕事のご相談・ご依頼はこちらからお気軽にどうぞ。</p>
+      <a href="mailto:hello@example.com" class="btn btn-white">Get in Touch</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Mai. All rights reserved.</p>
+    <p>Tokyo, Japan</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
