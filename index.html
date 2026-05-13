@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mai — Web Director</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,16 +21,18 @@
 
   <!-- Hero -->
   <section id="hero">
+    <div class="hero-dot" style="width:180px;height:180px;top:-50px;right:80px;"></div>
+    <div class="hero-dot" style="width:80px;height:80px;bottom:60px;right:260px;"></div>
     <div class="container">
       <p class="hero-eyebrow fade-in">Web Director — Tokyo</p>
-      <h1 class="hero-title fade-in" style="transition-delay: 0.1s">
-        Directing the web,<br><em>one pixel at a time.</em>
+      <h1 class="hero-title fade-in" style="transition-delay:0.1s">
+        Directing the web,<br><span>one pixel at a time.</span>
       </h1>
-      <p class="hero-desc fade-in" style="transition-delay: 0.2s">
-        Webデザイン及びWebサイトの企画・ディレクションをしています。<br>
+      <p class="hero-desc fade-in" style="transition-delay:0.2s">
+        ウェブサイトの企画・ディレクションを担当しています。<br>
         ユーザー体験とビジネス目標をつなぐ設計が得意分野です。
       </p>
-      <a href="#works" class="btn fade-in" style="transition-delay: 0.3s">View Works</a>
+      <a href="#works" class="btn fade-in" style="transition-delay:0.3s">View Works</a>
     </div>
   </section>
 
@@ -44,18 +44,18 @@
       <div class="grid">
         <div>
           <p class="section-label">About</p>
-          <p class="section-num">01</p>
+          <h2 class="section-title">こんにちは！</h2>
         </div>
         <div class="about-body fade-in">
           <p>
-            東京在住のWebディレクターです。
+            東京を拠点に活動するウェブディレクターです。
             <strong>企画・設計・進行管理</strong>を軸に、クライアントのビジネス課題をウェブで解決することを仕事にしています。
           </p>
           <p>
             エンジニア・デザイナーと密に連携しながら、ユーザーにとって自然で気持ちよいウェブ体験を追求しています。
           </p>
           <p>
-            仕事以外では、写真・料理・読書が好きです。
+            仕事以外では、イラスト・写真・読書が好きです。
           </p>
         </div>
       </div>
@@ -67,12 +67,8 @@
   <!-- Works -->
   <section id="works">
     <div class="container">
-      <div class="works-header">
-        <div>
-          <p class="section-label">Works</p>
-          <p class="section-num">02</p>
-        </div>
-      </div>
+      <p class="section-label">Works</p>
+      <h2 class="section-title">制作実績</h2>
       <div class="works-grid">
         <div class="work-card fade-in">
           <p class="work-tag">Corporate Website</p>
@@ -80,19 +76,19 @@
           <p class="work-desc">UI改善とCMS刷新により、コンテンツ更新の工数を50%削減。</p>
           <p class="work-year">2024</p>
         </div>
-        <div class="work-card fade-in" style="transition-delay: 0.1s">
+        <div class="work-card fade-in" style="transition-delay:0.1s">
           <p class="work-tag">EC Site</p>
           <h3 class="work-title">ECサイト UX改善</h3>
           <p class="work-desc">購入フローの見直しとA/Bテストにより、CVRを1.8倍に改善。</p>
           <p class="work-year">2023</p>
         </div>
-        <div class="work-card fade-in" style="transition-delay: 0.15s">
+        <div class="work-card fade-in" style="transition-delay:0.15s">
           <p class="work-tag">Service LP</p>
           <h3 class="work-title">サービス LP 制作</h3>
           <p class="work-desc">ターゲット設定からコピーライティング、制作進行まで一貫してディレクション。</p>
           <p class="work-year">2023</p>
         </div>
-        <div class="work-card fade-in" style="transition-delay: 0.2s">
+        <div class="work-card fade-in" style="transition-delay:0.2s">
           <p class="work-tag">Design System</p>
           <h3 class="work-title">デザインシステム 構築</h3>
           <p class="work-desc">社内共通コンポーネントの整備により、制作速度を大幅に向上。</p>
@@ -110,7 +106,7 @@
       <div class="skills-inner">
         <div>
           <p class="section-label">Skills</p>
-          <p class="section-num">03</p>
+          <h2 class="section-title">できること</h2>
         </div>
         <div class="skill-groups fade-in">
           <div>
@@ -159,7 +155,7 @@
     <div class="container">
       <h2 class="contact-title">Let's work together.</h2>
       <p class="contact-sub">お仕事のご相談・ご依頼はこちらからお気軽にどうぞ。</p>
-      <a href="mailto:hello@example.com" class="btn btn-white">Get in Touch</a>
+      <a href="mailto:hello@example.com" class="btn btn-yellow">Get in Touch</a>
     </div>
   </section>
 
@@ -167,6 +163,7 @@
     <p>© 2025 Mai. All rights reserved.</p>
     <p>Tokyo, Japan</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
