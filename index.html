@@ -11,12 +11,17 @@
   <!-- Nav -->
   <nav>
     <a href="#hero" class="nav-logo">Mai.</a>
-    <ul class="nav-links">
-      <li><a href="#about">About me</a></li>
-      <li><a href="#works">Works</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about" class="nav-link">About me</a></li>
+      <li><a href="#works" class="nav-link">Works</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
   <!-- Hero -->
@@ -43,9 +48,6 @@
     <div class="container">
       <div class="grid">
         <div>
-          <!-- 
-          <p class="section-label">About</p>
-          Nav -->
           <h2 class="section-title">About me</h2>
         </div>
         <div class="about-body fade-in">
@@ -69,9 +71,6 @@
   <!-- Works -->
   <section id="works">
     <div class="container">
-      <!--
-      <p class="section-label">Works</p>
-      -->
       <h2 class="section-title">Works</h2>
       <div class="works-grid">
         <div class="work-card fade-in">
@@ -109,9 +108,6 @@
     <div class="container">
       <div class="skills-inner">
         <div>
-          <!-- 
-          <p class="section-label">Skills</p>
-           -->
           <h2 class="section-title">Skills</h2>
         </div>
         <div class="skill-groups fade-in">
