@@ -602,3 +602,34 @@ footer p { font-size: 0.78rem; color: #555; letter-spacing: 0.05em; }
   #contact-form { padding: 4rem 1.5rem 5rem; }
   .form-row { grid-template-columns: 1fr; }
 }
+
+
+/* ─── Thank you ─── */
+#thankyou {
+  padding-top: 10rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--teal);
+  position: relative;
+  overflow: hidden;
+}
+
+.thankyou-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.thankyou-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
