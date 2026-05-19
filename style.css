@@ -378,8 +378,7 @@ footer p { font-size: 0.78rem; color: #555; letter-spacing: 0.05em; }
 }
 
 .form-label,
-.form-input,
-.form-note {
+.form-input {
   text-align: left;
 }
 
