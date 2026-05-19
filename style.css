@@ -374,6 +374,7 @@ footer p { font-size: 0.78rem; color: #555; letter-spacing: 0.05em; }
 .form-wrap {
   max-width: 600px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .form-row {
