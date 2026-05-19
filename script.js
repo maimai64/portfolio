@@ -19,7 +19,6 @@ hamburger.addEventListener('click', () => {
   hamburger.setAttribute('aria-expanded', isOpen);
 });
 
-// メニュー項目をタップしたら閉じる
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('is-open');
@@ -27,3 +26,35 @@ document.querySelectorAll('.nav-link').forEach(link => {
     hamburger.setAttribute('aria-expanded', false);
   });
 });
+
+// ─── お問い合わせフォーム送信 ───
+const contactForm = document.getElementById('contact');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = '送信中...';
+    btn.disabled = true;
+
+    const data = new FormData(contactForm);
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        window.location.href = 'thanks.html';
+      } else {
+        throw new Error('送信失敗');
+      }
+    } catch (error) {
+      btn.textContent = '送信に失敗しました。もう一度お試しください。';
+      btn.disabled = false;
+    }
+  });
+}
