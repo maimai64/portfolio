@@ -28,7 +28,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 });
 
 // ─── お問い合わせフォーム送信 ───
-const contactForm = document.getElementById('contact');
+const contactForm = document.getElementById('contact-form-el');
 
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
