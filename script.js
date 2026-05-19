@@ -48,7 +48,7 @@ if (contactForm) {
       });
 
       if (response.ok) {
-        window.location.href = 'thanks.html';
+        window.location.href = 'https://maimai64.github.io/portfolio/thanks.html';
       } else {
         throw new Error('送信失敗');
       }
