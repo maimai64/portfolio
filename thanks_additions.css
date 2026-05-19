@@ -1,0 +1,31 @@
+/* ─── style.cssの末尾に追記してください ─── */
+
+/* ─── Thank you ─── */
+#thankyou {
+  padding-top: 10rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--teal);
+  position: relative;
+  overflow: hidden;
+}
+
+.thankyou-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.thankyou-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
