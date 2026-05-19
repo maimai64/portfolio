@@ -294,7 +294,7 @@ footer {
   padding: 1.5rem 3rem;
   background: #222;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
