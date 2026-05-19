@@ -377,6 +377,12 @@ footer p { font-size: 0.78rem; color: #555; letter-spacing: 0.05em; }
   text-align: center;
 }
 
+.form-label,
+.form-input,
+.form-note {
+  text-align: left;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
